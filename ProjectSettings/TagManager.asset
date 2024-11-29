@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - BoundsEdge
+  - CameraShake
+  - Obstacles
+  - Interactable
+  - start
+  - SpecialAttack
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Ground
+  - Player
+  - Enemy
+  - EnemyDead
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: back
+    uniqueID: 2196613241
+    locked: 0
+  - name: middle
+    uniqueID: 233899527
+    locked: 0
+  - name: enemy
+    uniqueID: 875148773
+    locked: 0
+  - name: palyer
+    uniqueID: 2448291701
+    locked: 0
+  - name: front
+    uniqueID: 1526580571
+    locked: 0

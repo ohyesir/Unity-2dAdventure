@@ -866,7 +866,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   maxStamina: 100
-  currentStamina: 0
+  currentStamina: 100
   staminaReduceSpeed: 4
   staminaRecoverSpeed: 10
   isWaitStaminaRecover: 0
@@ -2148,7 +2148,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 692311936}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e57633f6935e334492c84bd90d83c3a, type: 3}
   m_Name: 

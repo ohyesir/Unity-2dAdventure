@@ -44,14 +44,17 @@ public class PlayerController : MonoBehaviour,ISave
     public int combo;  //动作长时用来变招
 
     [Header("状态")]
-    public bool isCrouch;
-    public bool isAttack;
-    public bool isHurt;
-    public bool wallJump;
-    public bool isSlide;
-    public bool isShield;
-    public bool isCharge;
-    public bool isDead ;
+    public bool isCrouch;  //下蹲状态
+    public bool isAttack;  //攻击状态
+    public bool isHurt;//受伤状态
+    public bool isWallJump;//墙跳状态
+    public bool isSlide;//滑行状态
+    public bool isShield;//防御状态
+    public bool isPerfectGuard;//精准防御
+    [SerializeField] float perfectGuardDuration;
+    public bool isNormalGuard;//普通防御
+    public bool isCharge;//蓄力
+    public bool isDead ;//死亡
 
     [Header("物理材质")]
     public PhysicsMaterial2D normal;
@@ -184,7 +187,7 @@ public class PlayerController : MonoBehaviour,ISave
     public void Move()
     {
 #region 人物移动及翻转    
-        if(!isCrouch && !wallJump && !isShield && !isCharge)
+        if(!isCrouch && !isWallJump && !isShield && !isCharge)
         {
             rb.velocity = new Vector2(inputDirection.x * speed * Time.deltaTime ,rb.velocity.y); 
                    //人物移动，Time.deltatime是一个时间的修正，帮助我们在不同的电脑配置下获得相同效果
@@ -233,7 +236,7 @@ public class PlayerController : MonoBehaviour,ISave
         if(physicsCheck.onWall )
         {
             rb.AddForce(new Vector2(-inputDirection.x, 2.5f) * wallJumpForce, ForceMode2D.Impulse);
-            wallJump = true;
+            isWallJump = true;
         }
             playerCharacter.currentStamina -= 20;
             playerCharacter.TriggerWaitStaminaRecover();
@@ -247,16 +250,34 @@ public class PlayerController : MonoBehaviour,ISave
         if(!obj.canceled && physicsCheck.isGround)
             {
                 isShield = true;
+                PerfectGuard();
                 // playerCharacter.SetStamina();
             }
         if(obj.canceled || playerCharacter.currentStamina < 1)
             {
                 isShield = false;
+                isNormalGuard = false;
                 playerCharacter.TriggerWaitStaminaRecover();
             
                 // playerCharacter.isWaitStaminaRecover = true;
             }
     }
+
+    private void PerfectGuard()
+    {
+        isPerfectGuard = true;
+        StartCoroutine(NormalGuard(perfectGuardDuration));
+
+    }
+
+    private IEnumerator NormalGuard(float perfectGuardDuration)
+    {
+
+        yield return new WaitForSeconds(perfectGuardDuration);
+        isPerfectGuard = false;
+        isNormalGuard = true;
+    }
+
     private void Charge(InputAction.CallbackContext obj)
     {
 
@@ -358,7 +379,7 @@ public class PlayerController : MonoBehaviour,ISave
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
 
         if(rb.velocity.y < 0f)
-            wallJump = false;
+            isWallJump = false;
 
 
         if(isDead || isSlide)

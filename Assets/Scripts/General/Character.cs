@@ -108,6 +108,18 @@ public class Character : MonoBehaviour, ISave
        OnHealthChange?.Invoke(this);
     }
     
+    public void GuardDamage(Attack attacker)
+    {
+        if(currentStamina - attacker.damage > 0)
+        {
+            currentStamina -= attacker.damage;
+        }
+        else
+        {
+            TakeDamage(attacker);
+        }
+    }
+
     public void SetStamina()
     {
         if(physicsCheck.isPlayer && currentStamina > 0.1f)

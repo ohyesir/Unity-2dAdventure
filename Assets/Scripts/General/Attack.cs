@@ -17,8 +17,14 @@ public class Attack : MonoBehaviour
      /* void OnTriggerEnter(Collider other)    当碰撞体刚碰撞
     private void OnTriggerExit(Collider other)  当碰撞体离开     */  
     {
-        other.GetComponent<Character>()?.TakeDamage(this);//如果对方有Character则执行,this传递的是当前的attack的参数
-        
+        // if(other.GetComponent<PlayerController>().isShield)//判断对方是否在防御状态
+        // {
+        //     other.GetComponent<Character>()?.GuardDamage(this);
+        // }
+        // else
+        // {
+            other.GetComponent<Character>()?.TakeDamage(this);//如果对方有Character则执行,this传递的是当前的attack的参数
+        // }
             
             
     }

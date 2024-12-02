@@ -96,6 +96,7 @@ public class Enemy : MonoBehaviour
      
      
      rb.velocity = new Vector2(currentSpeed * faceDir.x * Time.deltaTime, rb.velocity.y );
+     Debug.Log( rb.velocity.x);
      
    }
 #endregion
@@ -188,7 +189,7 @@ public class Enemy : MonoBehaviour
      private IEnumerator OnHurt(Vector2 dir) //协程， 迭代器，
      {
           rb.AddForce(dir * hurtForce, ForceMode2D.Impulse);//先执行
-          yield return new WaitForSeconds(0.6f); //等待时间
+          yield return new WaitForSeconds(1f); //等待时间
           isHurt = false ; //然后执行
 
      }

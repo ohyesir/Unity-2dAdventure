@@ -13285,15 +13285,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3545093410452757724, guid: 3b5e6bdf3de55df4d9e2858e67f2ba96, type: 3}
       propertyPath: hurtForce
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3545093410452757724, guid: 3b5e6bdf3de55df4d9e2858e67f2ba96, type: 3}
       propertyPath: chaseSpeed
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3545093410452757724, guid: 3b5e6bdf3de55df4d9e2858e67f2ba96, type: 3}
       propertyPath: normalSpeed
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4840822831627420223, guid: 3b5e6bdf3de55df4d9e2858e67f2ba96, type: 3}
       propertyPath: m_RootOrder
@@ -13301,7 +13301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4840822831627420223, guid: 3b5e6bdf3de55df4d9e2858e67f2ba96, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.298166
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 4840822831627420223, guid: 3b5e6bdf3de55df4d9e2858e67f2ba96, type: 3}
       propertyPath: m_LocalPosition.y

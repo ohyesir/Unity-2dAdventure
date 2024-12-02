@@ -96,7 +96,6 @@ public class Enemy : MonoBehaviour
      
      
      rb.velocity = new Vector2(currentSpeed * faceDir.x * Time.deltaTime, rb.velocity.y );
-     Debug.Log( rb.velocity.x);
      
    }
 #endregion
@@ -177,7 +176,9 @@ public class Enemy : MonoBehaviour
 
      //受伤被击退
      isHurt = true;
+     Debug.Log(anim.name);
      anim.SetTrigger("hurt"); //执行animator里的trigger hurt
+     anim.SetBool("isHurt", isHurt);
      Vector2 dir = new Vector2(transform.position.x - attackTrans.position.x , 0).normalized;
      rb.velocity = new Vector2(0,rb.velocity.y); //将受伤时速度改为0实现怪物被击退
 
@@ -191,6 +192,7 @@ public class Enemy : MonoBehaviour
           rb.AddForce(dir * hurtForce, ForceMode2D.Impulse);//先执行
           yield return new WaitForSeconds(1f); //等待时间
           isHurt = false ; //然后执行
+          anim.SetBool("isHurt", isHurt);
 
      }
 

@@ -50,16 +50,17 @@ public class PlayerSkill : MonoBehaviour
     }
     public void ChargeSword()
     {
-        if(currentCharge <= maxCharge)
+        if(currentCharge <= maxCharge) //当现在充能小于最大充能进行充能
         {
             currentCharge += chargeSpeed * Time.deltaTime;
         }
 
-        if((int)(currentCharge / 100) >= 1 && chargeState < 3 && (int)currentCharge / 100 != chargeState) // 每满100点，触发事件
+        if((int)(currentCharge / 100) >= 1 && chargeState < 3 && (int)currentCharge / 100 != chargeState) 
+        // 每满100点，触发事件
         {
 
             OnChargeSword.Invoke();
-            ReSetChargeSword();//开始计时
+            ReSetChargeSword();//开始掉刃计时
             chargeState += 1;
             
             
@@ -95,6 +96,16 @@ public class PlayerSkill : MonoBehaviour
 
     }
 
+    public void UpdateCharge()
+    {
+        if(chargeState < 3 )
+        {
+            currentCharge += 100;
+            chargeState += 1;
+            OnChargeSword.Invoke();
+            
+        }
+    }
     
 
     

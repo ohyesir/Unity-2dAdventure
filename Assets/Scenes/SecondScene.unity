@@ -13285,15 +13285,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3545093410452757724, guid: 3b5e6bdf3de55df4d9e2858e67f2ba96, type: 3}
       propertyPath: hurtForce
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3545093410452757724, guid: 3b5e6bdf3de55df4d9e2858e67f2ba96, type: 3}
       propertyPath: chaseSpeed
-      value: 4
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3545093410452757724, guid: 3b5e6bdf3de55df4d9e2858e67f2ba96, type: 3}
       propertyPath: normalSpeed
-      value: 2
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4840822831627420223, guid: 3b5e6bdf3de55df4d9e2858e67f2ba96, type: 3}
       propertyPath: m_RootOrder
@@ -13350,6 +13350,10 @@ PrefabInstance:
     - target: {fileID: 8720599549070388099, guid: 3b5e6bdf3de55df4d9e2858e67f2ba96, type: 3}
       propertyPath: m_Name
       value: NormalBoar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8720599549070388099, guid: 3b5e6bdf3de55df4d9e2858e67f2ba96, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

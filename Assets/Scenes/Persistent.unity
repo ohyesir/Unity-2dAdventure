@@ -597,11 +597,11 @@ GameObject:
   - component: {fileID: 172185846}
   - component: {fileID: 172185847}
   - component: {fileID: 172185848}
+  - component: {fileID: 172185853}
+  - component: {fileID: 172185856}
   - component: {fileID: 172185849}
   - component: {fileID: 172185851}
-  - component: {fileID: 172185853}
   - component: {fileID: 172185852}
-  - component: {fileID: 172185856}
   - component: {fileID: 172185854}
   - component: {fileID: 172185855}
   m_Layer: 7
@@ -768,9 +768,12 @@ MonoBehaviour:
   isCrouch: 0
   isAttack: 0
   isHurt: 0
-  wallJump: 0
+  isWallJump: 0
   isSlide: 0
   isShield: 0
+  isPerfectGuard: 0
+  perfectGuardDuration: 0.5
+  isNormalGuard: 0
   isCharge: 0
   isDead: 0
   normal: {fileID: 6200000, guid: a548dd1928b4dbb40849f1072a8ba769, type: 2}
@@ -864,7 +867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newGameEvent: {fileID: 11400000, guid: 6c871f9d3b18fcb44973a6cdcb5f3755, type: 2}
   maxHealth: 100
-  currentHealth: 0
+  currentHealth: 100
   maxStamina: 100
   currentStamina: 100
   staminaReduceSpeed: 4
@@ -3021,7 +3024,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.22, y: 1.29}
+  m_Size: {x: 0.96, y: 1.29}
   m_EdgeRadius: 0
 --- !u!1 &1107422525
 GameObject:

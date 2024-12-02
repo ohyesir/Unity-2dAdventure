@@ -256,6 +256,7 @@ public class PlayerController : MonoBehaviour,ISave
         if(obj.canceled || playerCharacter.currentStamina < 1)
             {
                 isShield = false;
+                isPerfectGuard = false;
                 isNormalGuard = false;
                 playerCharacter.TriggerWaitStaminaRecover();
             
@@ -264,7 +265,8 @@ public class PlayerController : MonoBehaviour,ISave
     }
 
     private void PerfectGuard()
-    {
+    { 
+        // if(isPerfectGuard == true)
         isPerfectGuard = true;
         StartCoroutine(NormalGuard(perfectGuardDuration));
 
@@ -275,7 +277,7 @@ public class PlayerController : MonoBehaviour,ISave
 
         yield return new WaitForSeconds(perfectGuardDuration);
         isPerfectGuard = false;
-        isNormalGuard = true;
+        isNormalGuard = isShield;
     }
 
     private void Charge(InputAction.CallbackContext obj)

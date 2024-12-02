@@ -8,23 +8,22 @@ public class Attack : MonoBehaviour
     public float attackRange;
     public float attackRate;
     
-
-
-
-
-    
-    public virtual void OnTriggerStay2D(Collider2D other)//当触碰到其他碰撞体触发trigger，此为持续碰撞
-     /* void OnTriggerEnter(Collider other)    当碰撞体刚碰撞
-    private void OnTriggerExit(Collider other)  当碰撞体离开     */  
+    public virtual void OnTriggerEnter2D(Collider2D other)//当触碰到其他碰撞体触发trigger，此为持续碰撞
     {
-        // if(other.GetComponent<PlayerController>().isShield)//判断对方是否在防御状态
-        // {
-        //     other.GetComponent<Character>()?.GuardDamage(this);
-        // }
-        // else
-        // {
+        bool isShield = false;
+        if(other.TryGetComponent(out PlayerController playerController))
+        {
+            isShield = playerController.isShield;
+        }
+        if(isShield)
+        {
+            // Debug.Log("格挡");
+            other.GetComponent<Character>()?.GuardDamage(this);
+        }
+        else
+        {
             other.GetComponent<Character>()?.TakeDamage(this);//如果对方有Character则执行,this传递的是当前的attack的参数
-        // }
+        }
             
             
     }

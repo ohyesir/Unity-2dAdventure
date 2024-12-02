@@ -12,7 +12,7 @@ public class PlayerAttack : Attack
         animator = gameObject.GetComponentInParent<Animator>();
     }
 
-    public override void OnTriggerStay2D(Collider2D other)
+    public override void OnTriggerEnter2D(Collider2D other)
     {
         other.GetComponent<Character>()?.TakeDamage(this);//如果对方有Character则执行,this传递的是当前的attack的参数
         if(other.CompareTag("Enemy") && animator.GetCurrentAnimatorStateInfo(1).IsName("blueAttack3"))
@@ -24,6 +24,7 @@ public class PlayerAttack : Attack
 
     public void IncreaseDamage()
     {
+    
         damage += damageVariable;
         // Debug.Log("攻击力" + damage);
     }

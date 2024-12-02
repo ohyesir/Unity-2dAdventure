@@ -110,13 +110,25 @@ public class Character : MonoBehaviour, ISave
     
     public void GuardDamage(Attack attacker)
     {
-        if(currentStamina - attacker.damage > 0)
+        PlayerController playerController= GetComponent<PlayerController>();
+        if(playerController != null )
         {
-            currentStamina -= attacker.damage;
-        }
-        else
-        {
-            TakeDamage(attacker);
+            if(playerController.isPerfectGuard)
+            {
+                PlayerSkill playerSkill = GetComponent<PlayerSkill>();
+                playerSkill.UpdateCharge();
+            }
+            else if(playerController.isNormalGuard)
+            {
+                if(currentStamina - attacker.damage > 0)//耐力大于0扣耐力
+                {
+                    currentStamina -= attacker.damage;
+                }
+                else
+                {
+                    TakeDamage(attacker); //否则直接扣血
+                }
+            } 
         }
     }
 

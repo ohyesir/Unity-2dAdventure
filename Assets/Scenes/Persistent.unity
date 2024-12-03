@@ -597,11 +597,11 @@ GameObject:
   - component: {fileID: 172185846}
   - component: {fileID: 172185847}
   - component: {fileID: 172185848}
-  - component: {fileID: 172185853}
-  - component: {fileID: 172185856}
   - component: {fileID: 172185849}
   - component: {fileID: 172185851}
+  - component: {fileID: 172185853}
   - component: {fileID: 172185852}
+  - component: {fileID: 172185856}
   - component: {fileID: 172185854}
   - component: {fileID: 172185855}
   m_Layer: 7
@@ -867,9 +867,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newGameEvent: {fileID: 11400000, guid: 6c871f9d3b18fcb44973a6cdcb5f3755, type: 2}
   maxHealth: 100
-  currentHealth: 100
+  currentHealth: 0
   maxStamina: 100
-  currentStamina: 100
+  currentStamina: 0
   staminaReduceSpeed: 4
   staminaRecoverSpeed: 10
   isWaitStaminaRecover: 0
@@ -2151,7 +2151,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 692311936}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e57633f6935e334492c84bd90d83c3a, type: 3}
   m_Name: 
@@ -2958,7 +2958,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1096564016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.96, y: 0.21, z: 0}
+  m_LocalPosition: {x: 5.97, y: 0.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3024,7 +3024,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.96, y: 1.29}
+  m_Size: {x: 1, y: 1.29}
   m_EdgeRadius: 0
 --- !u!1 &1107422525
 GameObject:

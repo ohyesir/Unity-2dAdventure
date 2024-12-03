@@ -242,7 +242,7 @@ MonoBehaviour:
   normalSpeed: 100
   chaseSpeed: 300
   currentSpeed: 0
-  hurtForce: 5
+  hurtForce: 20
   faceDir: {x: 0, y: 0, z: 0}
   attaker: {fileID: 0}
   spwanPoint: {x: 0, y: 0, z: 0}
@@ -330,7 +330,6 @@ MonoBehaviour:
   damage: 5
   attackRange: 0
   attackRate: 0
-  damageVariable: 0
 --- !u!114 &1262507122441630403
 MonoBehaviour:
   m_ObjectHideFlags: 0

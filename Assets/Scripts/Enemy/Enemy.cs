@@ -176,7 +176,7 @@ public class Enemy : MonoBehaviour
 
      //受伤被击退
      isHurt = true;
-     Debug.Log(anim.name);
+     // Debug.Log(anim.name);
      anim.SetTrigger("hurt"); //执行animator里的trigger hurt
      anim.SetBool("isHurt", isHurt);
      Vector2 dir = new Vector2(transform.position.x - attackTrans.position.x , 0).normalized;

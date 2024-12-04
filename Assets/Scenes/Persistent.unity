@@ -631,7 +631,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 856ad92e20419ba4fbc0922a3099d9d5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -868,9 +868,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newGameEvent: {fileID: 11400000, guid: 6c871f9d3b18fcb44973a6cdcb5f3755, type: 2}
   maxHealth: 100
-  currentHealth: 0
+  currentHealth: 100
   maxStamina: 100
-  currentStamina: 0
+  currentStamina: 100
   staminaReduceSpeed: 4
   staminaRecoverSpeed: 10
   isWaitStaminaRecover: 0
@@ -2197,7 +2197,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 692311936}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e57633f6935e334492c84bd90d83c3a, type: 3}
   m_Name: 

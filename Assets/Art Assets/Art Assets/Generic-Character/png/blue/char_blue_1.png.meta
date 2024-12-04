@@ -1585,7 +1585,11 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures: []
+    secondaryTextures:
+    - texture: {fileID: 2800000, guid: 3061a90d38dfeb54ba56575179930ecd, type: 3}
+      name: _SwordLight_1
+    - texture: {fileID: 2800000, guid: b2b9a9ce3985f7a4d96b8e4958aa77c9, type: 3}
+      name: _SwordLight_2
     nameFileIdTable:
       Charge_0: 907878098
       Charge_1: -1421644689

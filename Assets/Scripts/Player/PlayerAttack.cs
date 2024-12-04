@@ -17,7 +17,7 @@ public class PlayerAttack : Attack
         other.GetComponent<Character>()?.TakeDamage(this);//如果对方有Character则执行,this传递的是当前的attack的参数
         if(other.CompareTag("Enemy") && animator.GetCurrentAnimatorStateInfo(1).IsName("blueAttack3"))
         {
-            Debug.Log("三段攻击了");
+            // Debug.Log("三段攻击了");
             GetComponentInParent<PlayerSkill>()?.ReSetChargeSword();
         }
     }

@@ -9,7 +9,7 @@ public class PlayerSkill : MonoBehaviour
     public float maxCharge;
     public float currentCharge;
     public float chargeSpeed;
-    public int chargeState;
+    public int chargeState; //充能状态
 
     [Header("气刃")]
     public float timeDuration;
@@ -45,7 +45,8 @@ public class PlayerSkill : MonoBehaviour
             DisChargeSword();
                 
         }
-        
+    
+
         
     }
     public void ChargeSword()
@@ -58,10 +59,10 @@ public class PlayerSkill : MonoBehaviour
         if((int)(currentCharge / 100) >= 1 && chargeState < 3 && (int)currentCharge / 100 != chargeState) 
         // 每满100点，触发事件
         {
-
-            OnChargeSword.Invoke();
-            ReSetChargeSword();//开始掉刃计时
+            
+            ReSetChargeSword();//开始掉刃
             chargeState += 1;
+            OnChargeSword.Invoke();
             
             
         }    
@@ -83,7 +84,7 @@ public class PlayerSkill : MonoBehaviour
         }
         else
         {
-            if(chargeState > 0)
+            if(chargeState > 0)  //时间到了状态-1
             {
                 chargeState -= 1;
                 currentCharge = chargeState * 100 + 1;
@@ -91,12 +92,13 @@ public class PlayerSkill : MonoBehaviour
                 ReSetChargeSword();
             }
         }
+
         
 
 
     }
 
-    public void UpdateCharge()
+    public void UpdateCharge() //完美格挡时更新充能
     {
         if(chargeState < 3 )
         {
@@ -107,6 +109,20 @@ public class PlayerSkill : MonoBehaviour
         }
     }
     
+    public void UpdateSwordLight()
+    {
+        Material playerMaterial = GetComponent<Renderer>().material;
+        Debug.Log("当前阶段" + chargeState);
+        switch(chargeState)
+        {
+            case 0: case 1:
+                playerMaterial.SetColor("_SwordColor",new Color(0.5f, 0.5f, 0.5f));break;
+            case 2:
+                playerMaterial.SetColor("_SwordColor",new Color(1, 1, 0));break;
+            case 3:
+                playerMaterial.SetColor("_SwordColor",new Color(1, 0, 0));break;
+        }
+    }
 
     
     

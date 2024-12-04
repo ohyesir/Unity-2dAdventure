@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour,ISave
     public float wallJumpForce;
     public float hurtForce;
     public int combo;  //动作长时用来变招
+    [SerializeField]int actionStaminaCost;
 
     [Header("状态")]
     public bool isCrouch;  //下蹲状态
@@ -226,7 +227,7 @@ public class PlayerController : MonoBehaviour,ISave
 
     private void Jump(InputAction.CallbackContext obj)
     {
-       if(playerCharacter.currentStamina >= 20)
+       if(playerCharacter.currentStamina >= actionStaminaCost)
        {
         if(physicsCheck.isGround )
             {
@@ -238,7 +239,7 @@ public class PlayerController : MonoBehaviour,ISave
             rb.AddForce(new Vector2(-inputDirection.x, 2.5f) * wallJumpForce, ForceMode2D.Impulse);
             isWallJump = true;
         }
-            playerCharacter.currentStamina -= 20;
+            playerCharacter.currentStamina -= actionStaminaCost;
             playerCharacter.TriggerWaitStaminaRecover();
             // playerCharacter.SetStamina();
        }
@@ -299,10 +300,10 @@ public class PlayerController : MonoBehaviour,ISave
     
     private void Slide(InputAction.CallbackContext obj)
     {
-        if(physicsCheck.isGround && !isSlide && (playerCharacter.currentStamina >= 20))//在地面且不在滑行状态下才的到新的点
+        if(physicsCheck.isGround && !isSlide && (playerCharacter.currentStamina >= actionStaminaCost))//在地面且不在滑行状态下才的到新的点
         {
             isSlide = true;
-            playerCharacter.currentStamina -= 20;
+            playerCharacter.currentStamina -= actionStaminaCost;
             playerCharacter.TriggerWaitStaminaRecover();
             
             // playerCharacter.SetStamina();
@@ -311,6 +312,7 @@ public class PlayerController : MonoBehaviour,ISave
             
             
             StartCoroutine(TriggerSlide(targetPoint));
+
         }
        
     }
@@ -321,9 +323,9 @@ public class PlayerController : MonoBehaviour,ISave
         {
             yield return null;
 
-            if(physicsCheck.isTouchLeftWall || physicsCheck.isTouchRightWall)
+            if(physicsCheck.isTouchLeftWall || physicsCheck.isTouchRightWall)//当触墙时就停止
                 break;
-            
+            PlayerShadowPool.instance.shadowPool.Get();
             rb.MovePosition(new Vector2(transform.position.x + slideSpeed * transform.localScale.x, transform.position.y));
             
         }while(Mathf.Abs(targetPoint.x - transform.position.x) > 0.1f);
